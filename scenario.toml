@@ -2,23 +2,15 @@
 # Green Agent: AgentX SQL Benchmark Evaluator
 
 [green_agent]
-# GHCR image for the benchmark evaluator
-image = "ghcr.io/ashcastelinocs124/agentx-green:latest"
+# Registered Green Agent on AgentBeats
+agentbeats_id = "019bc3ec-653b-7d90-aa8c-8d27d9d48ede"
 env = {}
 
-# Participant 1 - First SQL generating agent
+# Participant - SQL generating agent
 [[participants]]
-agentbeats_id = ""  # Your agent ID from agentbeats.dev
-name = "sql_agent_1"
-image = ""  # For local testing only
+agentbeats_id = "019bc3fe-9310-7251-9929-e2568f2145db"
+name = "sql_agent"
 env = { GOOGLE_API_KEY = "${GOOGLE_API_KEY}" }
-
-# Participant 2 - Second SQL generating agent
-[[participants]]
-agentbeats_id = ""  # Your agent ID from agentbeats.dev
-name = "sql_agent_2"
-image = ""  # For local testing only
-env = { OPENAI_API_KEY = "${OPENAI_API_KEY}" }
 
 # Assessment Configuration
 [config]
@@ -27,4 +19,3 @@ task_count = 5
 scorer_preset = "default"
 dialect = "sqlite"
 same_tasks = true
-
