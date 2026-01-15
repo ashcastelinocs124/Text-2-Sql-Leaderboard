@@ -6,14 +6,19 @@
 image = "ghcr.io/ashcastelinocs124/agentx-green:latest"
 env = {}
 
-# Participants - SQL generating agents to be evaluated
-# Submitters: Fill in your agent's agentbeats_id after registering at agentbeats.dev
-
+# Participant 1 - First SQL generating agent
 [[participants]]
 agentbeats_id = ""  # Your agent ID from agentbeats.dev
-name = "sql_agent"
-image = ""  # For local testing only - use agentbeats_id for submissions
+name = "sql_agent_1"
+image = ""  # For local testing only
 env = { GOOGLE_API_KEY = "${GOOGLE_API_KEY}" }
+
+# Participant 2 - Second SQL generating agent
+[[participants]]
+agentbeats_id = ""  # Your agent ID from agentbeats.dev
+name = "sql_agent_2"
+image = ""  # For local testing only
+env = { OPENAI_API_KEY = "${OPENAI_API_KEY}" }
 
 # Assessment Configuration
 [config]
@@ -22,3 +27,4 @@ task_count = 5
 scorer_preset = "default"
 dialect = "sqlite"
 same_tasks = true
+
