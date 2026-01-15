@@ -1,0 +1,24 @@
+# Text-2-SQL Agent Benchmark Scenario
+# Green Agent: AgentX SQL Benchmark Evaluator
+
+[green_agent]
+# GHCR image for the benchmark evaluator
+image = "ghcr.io/ashcastelinocs124/agentx-green:latest"
+env = {}
+
+# Participants - SQL generating agents to be evaluated
+# Submitters: Fill in your agent's agentbeats_id after registering at agentbeats.dev
+
+[[participants]]
+agentbeats_id = ""  # Your agent ID from agentbeats.dev
+name = "sql_agent"
+image = ""  # For local testing only - use agentbeats_id for submissions
+env = { GOOGLE_API_KEY = "${GOOGLE_API_KEY}" }
+
+# Assessment Configuration
+[config]
+difficulty = ["easy", "medium"]
+task_count = 5
+scorer_preset = "default"
+dialect = "sqlite"
+same_tasks = true
