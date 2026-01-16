@@ -20,11 +20,10 @@ name = "sql_agent_openai"
 env = { OPENAI_API_KEY = "${OPENAI_API_KEY}" }
 
 # Assessment Configuration
-Assessment Configuration
 [config]
 difficulty = ["easy", "medium", "hard", "enterprise"]
 task_count = 10
 scorer_preset = "default"
 dialect = "sqlite"
 same_tasks = true
-# Re-trigger: Thu Jan 16 00:25:00 CST 2026
+# Re-trigger: Thu Jan 16 00:27:00 CST 2026
