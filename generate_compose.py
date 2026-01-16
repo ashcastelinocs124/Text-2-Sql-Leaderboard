@@ -101,7 +101,7 @@ PARTICIPANT_TEMPLATE = """  {name}:
       - .env
     environment:{env}
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:{port}/.well-known/agent.json"]
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:{port}/.well-known/agent.json')"]
       interval: 5s
       timeout: 3s
       retries: 10
