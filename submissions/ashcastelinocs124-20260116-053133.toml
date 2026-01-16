@@ -1,0 +1,29 @@
+# Text-2-SQL Agent Benchmark Scenario
+# Green Agent: AgentX SQL Benchmark Evaluator
+# Triggered: 2026-01-15
+
+[green_agent]
+# Registered Green Agent on AgentBeats
+agentbeats_id = "019bc3ec-653b-7d90-aa8c-8d27d9d48ede"
+env = {}
+
+# Participant - SQL generating agent (Gemini)
+[[participants]]
+agentbeats_id = "019bc3fe-9310-7251-9929-e2568f2145db"
+name = "text-2-sql-gemini-agent"
+env = { GOOGLE_API_KEY = "${GOOGLE_API_KEY}" }
+
+# Participant - SQL generating agent (OpenAI)
+[[participants]]
+agentbeats_id = "019bc521-3772-7c11-b4f7-1eadc2555d97"
+name = "open-ai-text-2sql"
+env = { OPENAI_API_KEY = "${OPENAI_API_KEY}" }
+
+# Assessment Configuration
+[config]
+difficulty = ["easy", "medium"]
+task_count = 5
+scorer_preset = "default"
+dialect = "sqlite"
+same_tasks = true
+# Re-trigger: Thu Jan 15 23:30:00 CST 2026
