@@ -1,0 +1,1031 @@
+{
+  "participants": {
+    "sql_agent": "019bc3fe-9310-7251-9929-e2568f2145db",
+    "sql_agent_openai": "019bc521-3772-7c11-b4f7-1eadc2555d97"
+  },
+  "results": [
+    {
+      "assessment_id": "8179fb8d",
+      "completed_at": "2026-01-16T06:28:12.205495",
+      "config": {
+        "difficulty": [
+          "easy",
+          "medium",
+          "hard",
+          "enterprise"
+        ],
+        "task_count": 10,
+        "tags": null,
+        "schema_type": "basic",
+        "scorer_preset": "default",
+        "dialect": "sqlite"
+      },
+      "rankings": [
+        {
+          "rank": 1,
+          "participant_id": "sql_agent",
+          "overall_score": 0.9378
+        },
+        {
+          "rank": 2,
+          "participant_id": "sql_agent_openai",
+          "overall_score": 0.9378
+        }
+      ],
+      "participants": {
+        "sql_agent": {
+          "participant_id": "sql_agent",
+          "endpoint": "http://sql_agent:9009/",
+          "total_tasks": 10,
+          "successful": 10,
+          "failed": 0,
+          "scores": {
+            "overall": 0.9378,
+            "correctness": 0.8592,
+            "efficiency": 1.0,
+            "safety": 0.992,
+            "completeness": 1.0,
+            "semantic_accuracy": 0.9149,
+            "best_practices": 0.945,
+            "plan_quality": 1.0,
+            "hallucination_score": 1.0,
+            "validation_score": 0.98,
+            "performance_score": 1.0
+          },
+          "task_results": [
+            {
+              "task_id": "sqlite_simple_select",
+              "question": "Get all customer records with a limit of 10",
+              "sql_submitted": "SELECT * FROM customers LIMIT 10",
+              "gold_sql": "SELECT * FROM customers LIMIT 10",
+              "scores": {
+                "overall": 0.8761,
+                "correctness": 0.7,
+                "efficiency": 1.0,
+                "safety": 1.0,
+                "completeness": 1.0,
+                "semantic_accuracy": 0.8607,
+                "best_practices": 0.9,
+                "plan_quality": 1.0,
+                "hallucination_score": 1.0,
+                "validation_score": 1.0,
+                "performance_score": 1.0
+              },
+              "execution_success": true,
+              "execution_time_ms": 0.11,
+              "rows_returned": 4,
+              "validation_errors": [],
+              "phantom_tables": [],
+              "phantom_columns": [],
+              "error_message": null,
+              "error_classification": {
+                "category": "analysis_error",
+                "subcategory": "incorrect_planning",
+                "details": "Query structure differs from expected"
+              }
+            },
+            {
+              "task_id": "sqlite_count",
+              "question": "Count the total number of customers in the database",
+              "sql_submitted": "SELECT COUNT(*) as total FROM customers",
+              "gold_sql": "SELECT COUNT(*) as total FROM customers",
+              "scores": {
+                "overall": 0.771,
+                "correctness": 0.5,
+                "efficiency": 1.0,
+                "safety": 1.0,
+                "completeness": 1.0,
+                "semantic_accuracy": 0.46,
+                "best_practices": 1.0,
+                "plan_quality": 1.0,
+                "hallucination_score": 1.0,
+                "validation_score": 1.0,
+                "performance_score": 1.0
+              },
+              "execution_success": true,
+              "execution_time_ms": 0.04,
+              "rows_returned": 1,
+              "validation_errors": [],
+              "phantom_tables": [],
+              "phantom_columns": [],
+              "error_message": null,
+              "error_classification": {
+                "category": "analysis_error",
+                "subcategory": "incorrect_planning",
+                "details": "Query structure differs from expected"
+              }
+            },
+            {
+              "task_id": "sqlite_where_filter",
+              "question": "Find all customers who live in New York",
+              "sql_submitted": "SELECT * FROM customers WHERE city = 'New York'",
+              "gold_sql": "SELECT * FROM customers WHERE city = 'New York'",
+              "scores": {
+                "overall": 0.96,
+                "correctness": 0.9,
+                "efficiency": 1.0,
+                "safety": 1.0,
+                "completeness": 1.0,
+                "semantic_accuracy": 1.0,
+                "best_practices": 0.9,
+                "plan_quality": 1.0,
+                "hallucination_score": 1.0,
+                "validation_score": 1.0,
+                "performance_score": 1.0
+              },
+              "execution_success": true,
+              "execution_time_ms": 0.07,
+              "rows_returned": 2,
+              "validation_errors": [],
+              "phantom_tables": [],
+              "phantom_columns": [],
+              "error_message": null,
+              "error_classification": {
+                "category": "no_error",
+                "subcategory": "no_error",
+                "details": "No clear error pattern detected"
+              }
+            },
+            {
+              "task_id": "sqlite_join",
+              "question": "Get customer names along with their order dates and totals",
+              "sql_submitted": "SELECT c.name, o.order_date, o.total FROM customers c JOIN orders o ON c.id = o.customer_id",
+              "gold_sql": "SELECT c.name, o.order_date, o.total FROM customers c JOIN orders o ON c.id = o.customer_id",
+              "scores": {
+                "overall": 0.9975,
+                "correctness": 1.0,
+                "efficiency": 1.0,
+                "safety": 1.0,
+                "completeness": 1.0,
+                "semantic_accuracy": 1.0,
+                "best_practices": 0.95,
+                "plan_quality": 1.0,
+                "hallucination_score": 1.0,
+                "validation_score": 1.0,
+                "performance_score": 1.0
+              },
+              "execution_success": true,
+              "execution_time_ms": 0.07,
+              "rows_returned": 5,
+              "validation_errors": [],
+              "phantom_tables": [],
+              "phantom_columns": [],
+              "error_message": null,
+              "error_classification": {
+                "category": "no_error",
+                "subcategory": "no_error",
+                "details": "Query executed successfully with correct results"
+              }
+            },
+            {
+              "task_id": "sqlite_group_by",
+              "question": "Count the number of customers in each city, ordered by count descending",
+              "sql_submitted": "SELECT city, COUNT(*) as customer_count FROM customers GROUP BY city ORDER BY customer_count DESC",
+              "gold_sql": "SELECT city, COUNT(*) as customer_count FROM customers GROUP BY city ORDER BY customer_count DESC",
+              "scores": {
+                "overall": 0.9137,
+                "correctness": 0.775,
+                "efficiency": 1.0,
+                "safety": 1.0,
+                "completeness": 1.0,
+                "semantic_accuracy": 0.9242,
+                "best_practices": 1.0,
+                "plan_quality": 1.0,
+                "hallucination_score": 1.0,
+                "validation_score": 1.0,
+                "performance_score": 1.0
+              },
+              "execution_success": true,
+              "execution_time_ms": 0.1,
+              "rows_returned": 3,
+              "validation_errors": [],
+              "phantom_tables": [],
+              "phantom_columns": [],
+              "error_message": null,
+              "error_classification": {
+                "category": "analysis_error",
+                "subcategory": "incorrect_planning",
+                "details": "Query structure differs from expected"
+              }
+            },
+            {
+              "task_id": "sqlite_subquery",
+              "question": "Find customers who have placed orders with a total greater than 100",
+              "sql_submitted": "SELECT * FROM customers WHERE id IN (SELECT customer_id FROM orders WHERE total > 100)",
+              "gold_sql": "SELECT * FROM customers WHERE id IN (SELECT customer_id FROM orders WHERE total > 100)",
+              "scores": {
+                "overall": 0.96,
+                "correctness": 0.9,
+                "efficiency": 1.0,
+                "safety": 1.0,
+                "completeness": 1.0,
+                "semantic_accuracy": 1.0,
+                "best_practices": 0.9,
+                "plan_quality": 1.0,
+                "hallucination_score": 1.0,
+                "validation_score": 1.0,
+                "performance_score": 1.0
+              },
+              "execution_success": true,
+              "execution_time_ms": 0.1,
+              "rows_returned": 3,
+              "validation_errors": [],
+              "phantom_tables": [],
+              "phantom_columns": [],
+              "error_message": null,
+              "error_classification": {
+                "category": "no_error",
+                "subcategory": "no_error",
+                "details": "No clear error pattern detected"
+              }
+            },
+            {
+              "task_id": "sqlite_left_join",
+              "question": "Get all customers and their orders (including customers with no orders)",
+              "sql_submitted": "SELECT c.name, o.total FROM customers c LEFT JOIN orders o ON c.id = o.customer_id",
+              "gold_sql": "SELECT c.name, o.total FROM customers c LEFT JOIN orders o ON c.id = o.customer_id",
+              "scores": {
+                "overall": 0.9238,
+                "correctness": 0.8167,
+                "efficiency": 1.0,
+                "safety": 1.0,
+                "completeness": 1.0,
+                "semantic_accuracy": 0.9042,
+                "best_practices": 0.95,
+                "plan_quality": 1.0,
+                "hallucination_score": 1.0,
+                "validation_score": 1.0,
+                "performance_score": 1.0
+              },
+              "execution_success": true,
+              "execution_time_ms": 0.1,
+              "rows_returned": 5,
+              "validation_errors": [],
+              "phantom_tables": [],
+              "phantom_columns": [],
+              "error_message": null,
+              "error_classification": {
+                "category": "no_error",
+                "subcategory": "no_error",
+                "details": "No clear error pattern detected"
+              }
+            },
+            {
+              "task_id": "sqlite_aggregate_sum",
+              "question": "Calculate the total revenue from all orders",
+              "sql_submitted": "SELECT SUM(total) as total_revenue FROM orders",
+              "gold_sql": "SELECT SUM(total) as total_revenue FROM orders",
+              "scores": {
+                "overall": 0.9975,
+                "correctness": 1.0,
+                "efficiency": 1.0,
+                "safety": 1.0,
+                "completeness": 1.0,
+                "semantic_accuracy": 1.0,
+                "best_practices": 0.95,
+                "plan_quality": 1.0,
+                "hallucination_score": 1.0,
+                "validation_score": 1.0,
+                "performance_score": 1.0
+              },
+              "execution_success": true,
+              "execution_time_ms": 0.05,
+              "rows_returned": 1,
+              "validation_errors": [],
+              "phantom_tables": [],
+              "phantom_columns": [],
+              "error_message": null,
+              "error_classification": {
+                "category": "no_error",
+                "subcategory": "no_error",
+                "details": "Query executed successfully with correct results"
+              }
+            },
+            {
+              "task_id": "sqlite_aggregate_avg",
+              "question": "Calculate the average order value",
+              "sql_submitted": "SELECT AVG(total) as avg_order_value FROM orders",
+              "gold_sql": "SELECT AVG(total) as avg_order_value FROM orders",
+              "scores": {
+                "overall": 0.9975,
+                "correctness": 1.0,
+                "efficiency": 1.0,
+                "safety": 1.0,
+                "completeness": 1.0,
+                "semantic_accuracy": 1.0,
+                "best_practices": 0.95,
+                "plan_quality": 1.0,
+                "hallucination_score": 1.0,
+                "validation_score": 1.0,
+                "performance_score": 1.0
+              },
+              "execution_success": true,
+              "execution_time_ms": 0.03,
+              "rows_returned": 1,
+              "validation_errors": [],
+              "phantom_tables": [],
+              "phantom_columns": [],
+              "error_message": null,
+              "error_classification": {
+                "category": "no_error",
+                "subcategory": "no_error",
+                "details": "Query executed successfully with correct results"
+              }
+            },
+            {
+              "task_id": "sqlite_case_when",
+              "question": "Categorize orders as 'high', 'medium', or 'low' based on total amount",
+              "sql_submitted": "SELECT id, total, CASE WHEN total > 500 THEN 'high' WHEN total > 100 THEN 'medium' ELSE 'low' END as category FROM orders",
+              "gold_sql": "SELECT id, total, CASE WHEN total > 500 THEN 'high' WHEN total > 100 THEN 'medium' ELSE 'low' END as category FROM orders",
+              "scores": {
+                "overall": 0.9815,
+                "correctness": 1.0,
+                "efficiency": 1.0,
+                "safety": 0.92,
+                "completeness": 1.0,
+                "semantic_accuracy": 1.0,
+                "best_practices": 0.95,
+                "plan_quality": 1.0,
+                "hallucination_score": 1.0,
+                "validation_score": 0.8,
+                "performance_score": 1.0
+              },
+              "execution_success": true,
+              "execution_time_ms": 0.06,
+              "rows_returned": 5,
+              "validation_errors": [],
+              "phantom_tables": [],
+              "phantom_columns": [],
+              "error_message": null,
+              "error_classification": {
+                "category": "no_error",
+                "subcategory": "no_error",
+                "details": "Query executed successfully with correct results"
+              }
+            }
+          ],
+          "error_metrics": {
+            "total_tasks": 10,
+            "successful_tasks": 7,
+            "failed_tasks": 3,
+            "success_rate": 70.0,
+            "category_counts": {
+              "analysis_error": 3,
+              "no_error": 7
+            },
+            "subcategory_counts": {
+              "incorrect_planning": 3,
+              "no_error": 7
+            },
+            "category_percentages": {
+              "analysis_error": 100.0
+            },
+            "subcategory_percentages": {
+              "incorrect_planning": 100.0
+            },
+            "detailed_breakdown": {
+              "incorrect_planning": {
+                "count": 3,
+                "percentage": 100.0,
+                "examples": [
+                  {
+                    "task_id": "sqlite_simple_select",
+                    "sql_snippet": "SELECT * FROM customers LIMIT 10",
+                    "details": "Query structure differs from expected",
+                    "evidence": [
+                      "match_score=0.7"
+                    ]
+                  },
+                  {
+                    "task_id": "sqlite_count",
+                    "sql_snippet": "SELECT COUNT(*) as total FROM customers",
+                    "details": "Query structure differs from expected",
+                    "evidence": [
+                      "match_score=0.5"
+                    ]
+                  },
+                  {
+                    "task_id": "sqlite_group_by",
+                    "sql_snippet": "SELECT city, COUNT(*) as customer_count FROM customers GROUP BY city ORDER BY customer_count DESC",
+                    "details": "Query structure differs from expected",
+                    "evidence": [
+                      "match_score=0.775"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "sql_agent_openai": {
+          "participant_id": "sql_agent_openai",
+          "endpoint": "http://sql_agent_openai:9009/",
+          "total_tasks": 10,
+          "successful": 10,
+          "failed": 0,
+          "scores": {
+            "overall": 0.9378,
+            "correctness": 0.8592,
+            "efficiency": 1.0,
+            "safety": 0.992,
+            "completeness": 1.0,
+            "semantic_accuracy": 0.9149,
+            "best_practices": 0.945,
+            "plan_quality": 1.0,
+            "hallucination_score": 1.0,
+            "validation_score": 0.98,
+            "performance_score": 1.0
+          },
+          "task_results": [
+            {
+              "task_id": "sqlite_simple_select",
+              "question": "Get all customer records with a limit of 10",
+              "sql_submitted": "SELECT * FROM customers LIMIT 10",
+              "gold_sql": "SELECT * FROM customers LIMIT 10",
+              "scores": {
+                "overall": 0.8761,
+                "correctness": 0.7,
+                "efficiency": 1.0,
+                "safety": 1.0,
+                "completeness": 1.0,
+                "semantic_accuracy": 0.8607,
+                "best_practices": 0.9,
+                "plan_quality": 1.0,
+                "hallucination_score": 1.0,
+                "validation_score": 1.0,
+                "performance_score": 1.0
+              },
+              "execution_success": true,
+              "execution_time_ms": 0.03,
+              "rows_returned": 4,
+              "validation_errors": [],
+              "phantom_tables": [],
+              "phantom_columns": [],
+              "error_message": null,
+              "error_classification": {
+                "category": "analysis_error",
+                "subcategory": "incorrect_planning",
+                "details": "Query structure differs from expected"
+              }
+            },
+            {
+              "task_id": "sqlite_count",
+              "question": "Count the total number of customers in the database",
+              "sql_submitted": "SELECT COUNT(*) as total FROM customers",
+              "gold_sql": "SELECT COUNT(*) as total FROM customers",
+              "scores": {
+                "overall": 0.771,
+                "correctness": 0.5,
+                "efficiency": 1.0,
+                "safety": 1.0,
+                "completeness": 1.0,
+                "semantic_accuracy": 0.46,
+                "best_practices": 1.0,
+                "plan_quality": 1.0,
+                "hallucination_score": 1.0,
+                "validation_score": 1.0,
+                "performance_score": 1.0
+              },
+              "execution_success": true,
+              "execution_time_ms": 0.01,
+              "rows_returned": 1,
+              "validation_errors": [],
+              "phantom_tables": [],
+              "phantom_columns": [],
+              "error_message": null,
+              "error_classification": {
+                "category": "analysis_error",
+                "subcategory": "incorrect_planning",
+                "details": "Query structure differs from expected"
+              }
+            },
+            {
+              "task_id": "sqlite_where_filter",
+              "question": "Find all customers who live in New York",
+              "sql_submitted": "SELECT * FROM customers WHERE city = 'New York'",
+              "gold_sql": "SELECT * FROM customers WHERE city = 'New York'",
+              "scores": {
+                "overall": 0.96,
+                "correctness": 0.9,
+                "efficiency": 1.0,
+                "safety": 1.0,
+                "completeness": 1.0,
+                "semantic_accuracy": 1.0,
+                "best_practices": 0.9,
+                "plan_quality": 1.0,
+                "hallucination_score": 1.0,
+                "validation_score": 1.0,
+                "performance_score": 1.0
+              },
+              "execution_success": true,
+              "execution_time_ms": 0.02,
+              "rows_returned": 2,
+              "validation_errors": [],
+              "phantom_tables": [],
+              "phantom_columns": [],
+              "error_message": null,
+              "error_classification": {
+                "category": "no_error",
+                "subcategory": "no_error",
+                "details": "No clear error pattern detected"
+              }
+            },
+            {
+              "task_id": "sqlite_join",
+              "question": "Get customer names along with their order dates and totals",
+              "sql_submitted": "SELECT c.name, o.order_date, o.total FROM customers c JOIN orders o ON c.id = o.customer_id",
+              "gold_sql": "SELECT c.name, o.order_date, o.total FROM customers c JOIN orders o ON c.id = o.customer_id",
+              "scores": {
+                "overall": 0.9975,
+                "correctness": 1.0,
+                "efficiency": 1.0,
+                "safety": 1.0,
+                "completeness": 1.0,
+                "semantic_accuracy": 1.0,
+                "best_practices": 0.95,
+                "plan_quality": 1.0,
+                "hallucination_score": 1.0,
+                "validation_score": 1.0,
+                "performance_score": 1.0
+              },
+              "execution_success": true,
+              "execution_time_ms": 0.03,
+              "rows_returned": 5,
+              "validation_errors": [],
+              "phantom_tables": [],
+              "phantom_columns": [],
+              "error_message": null,
+              "error_classification": {
+                "category": "no_error",
+                "subcategory": "no_error",
+                "details": "Query executed successfully with correct results"
+              }
+            },
+            {
+              "task_id": "sqlite_group_by",
+              "question": "Count the number of customers in each city, ordered by count descending",
+              "sql_submitted": "SELECT city, COUNT(*) as customer_count FROM customers GROUP BY city ORDER BY customer_count DESC",
+              "gold_sql": "SELECT city, COUNT(*) as customer_count FROM customers GROUP BY city ORDER BY customer_count DESC",
+              "scores": {
+                "overall": 0.9137,
+                "correctness": 0.775,
+                "efficiency": 1.0,
+                "safety": 1.0,
+                "completeness": 1.0,
+                "semantic_accuracy": 0.9242,
+                "best_practices": 1.0,
+                "plan_quality": 1.0,
+                "hallucination_score": 1.0,
+                "validation_score": 1.0,
+                "performance_score": 1.0
+              },
+              "execution_success": true,
+              "execution_time_ms": 0.04,
+              "rows_returned": 3,
+              "validation_errors": [],
+              "phantom_tables": [],
+              "phantom_columns": [],
+              "error_message": null,
+              "error_classification": {
+                "category": "analysis_error",
+                "subcategory": "incorrect_planning",
+                "details": "Query structure differs from expected"
+              }
+            },
+            {
+              "task_id": "sqlite_subquery",
+              "question": "Find customers who have placed orders with a total greater than 100",
+              "sql_submitted": "SELECT * FROM customers WHERE id IN (SELECT customer_id FROM orders WHERE total > 100)",
+              "gold_sql": "SELECT * FROM customers WHERE id IN (SELECT customer_id FROM orders WHERE total > 100)",
+              "scores": {
+                "overall": 0.96,
+                "correctness": 0.9,
+                "efficiency": 1.0,
+                "safety": 1.0,
+                "completeness": 1.0,
+                "semantic_accuracy": 1.0,
+                "best_practices": 0.9,
+                "plan_quality": 1.0,
+                "hallucination_score": 1.0,
+                "validation_score": 1.0,
+                "performance_score": 1.0
+              },
+              "execution_success": true,
+              "execution_time_ms": 0.05,
+              "rows_returned": 3,
+              "validation_errors": [],
+              "phantom_tables": [],
+              "phantom_columns": [],
+              "error_message": null,
+              "error_classification": {
+                "category": "no_error",
+                "subcategory": "no_error",
+                "details": "No clear error pattern detected"
+              }
+            },
+            {
+              "task_id": "sqlite_left_join",
+              "question": "Get all customers and their orders (including customers with no orders)",
+              "sql_submitted": "SELECT c.name, o.total FROM customers c LEFT JOIN orders o ON c.id = o.customer_id",
+              "gold_sql": "SELECT c.name, o.total FROM customers c LEFT JOIN orders o ON c.id = o.customer_id",
+              "scores": {
+                "overall": 0.9238,
+                "correctness": 0.8167,
+                "efficiency": 1.0,
+                "safety": 1.0,
+                "completeness": 1.0,
+                "semantic_accuracy": 0.9042,
+                "best_practices": 0.95,
+                "plan_quality": 1.0,
+                "hallucination_score": 1.0,
+                "validation_score": 1.0,
+                "performance_score": 1.0
+              },
+              "execution_success": true,
+              "execution_time_ms": 0.03,
+              "rows_returned": 5,
+              "validation_errors": [],
+              "phantom_tables": [],
+              "phantom_columns": [],
+              "error_message": null,
+              "error_classification": {
+                "category": "no_error",
+                "subcategory": "no_error",
+                "details": "No clear error pattern detected"
+              }
+            },
+            {
+              "task_id": "sqlite_aggregate_sum",
+              "question": "Calculate the total revenue from all orders",
+              "sql_submitted": "SELECT SUM(total) as total_revenue FROM orders",
+              "gold_sql": "SELECT SUM(total) as total_revenue FROM orders",
+              "scores": {
+                "overall": 0.9975,
+                "correctness": 1.0,
+                "efficiency": 1.0,
+                "safety": 1.0,
+                "completeness": 1.0,
+                "semantic_accuracy": 1.0,
+                "best_practices": 0.95,
+                "plan_quality": 1.0,
+                "hallucination_score": 1.0,
+                "validation_score": 1.0,
+                "performance_score": 1.0
+              },
+              "execution_success": true,
+              "execution_time_ms": 0.01,
+              "rows_returned": 1,
+              "validation_errors": [],
+              "phantom_tables": [],
+              "phantom_columns": [],
+              "error_message": null,
+              "error_classification": {
+                "category": "no_error",
+                "subcategory": "no_error",
+                "details": "Query executed successfully with correct results"
+              }
+            },
+            {
+              "task_id": "sqlite_aggregate_avg",
+              "question": "Calculate the average order value",
+              "sql_submitted": "SELECT AVG(total) as avg_order_value FROM orders",
+              "gold_sql": "SELECT AVG(total) as avg_order_value FROM orders",
+              "scores": {
+                "overall": 0.9975,
+                "correctness": 1.0,
+                "efficiency": 1.0,
+                "safety": 1.0,
+                "completeness": 1.0,
+                "semantic_accuracy": 1.0,
+                "best_practices": 0.95,
+                "plan_quality": 1.0,
+                "hallucination_score": 1.0,
+                "validation_score": 1.0,
+                "performance_score": 1.0
+              },
+              "execution_success": true,
+              "execution_time_ms": 0.01,
+              "rows_returned": 1,
+              "validation_errors": [],
+              "phantom_tables": [],
+              "phantom_columns": [],
+              "error_message": null,
+              "error_classification": {
+                "category": "no_error",
+                "subcategory": "no_error",
+                "details": "Query executed successfully with correct results"
+              }
+            },
+            {
+              "task_id": "sqlite_case_when",
+              "question": "Categorize orders as 'high', 'medium', or 'low' based on total amount",
+              "sql_submitted": "SELECT id, total, CASE WHEN total > 500 THEN 'high' WHEN total > 100 THEN 'medium' ELSE 'low' END as category FROM orders",
+              "gold_sql": "SELECT id, total, CASE WHEN total > 500 THEN 'high' WHEN total > 100 THEN 'medium' ELSE 'low' END as category FROM orders",
+              "scores": {
+                "overall": 0.9815,
+                "correctness": 1.0,
+                "efficiency": 1.0,
+                "safety": 0.92,
+                "completeness": 1.0,
+                "semantic_accuracy": 1.0,
+                "best_practices": 0.95,
+                "plan_quality": 1.0,
+                "hallucination_score": 1.0,
+                "validation_score": 0.8,
+                "performance_score": 1.0
+              },
+              "execution_success": true,
+              "execution_time_ms": 0.02,
+              "rows_returned": 5,
+              "validation_errors": [],
+              "phantom_tables": [],
+              "phantom_columns": [],
+              "error_message": null,
+              "error_classification": {
+                "category": "no_error",
+                "subcategory": "no_error",
+                "details": "Query executed successfully with correct results"
+              }
+            }
+          ],
+          "error_metrics": {
+            "total_tasks": 10,
+            "successful_tasks": 7,
+            "failed_tasks": 3,
+            "success_rate": 70.0,
+            "category_counts": {
+              "analysis_error": 3,
+              "no_error": 7
+            },
+            "subcategory_counts": {
+              "incorrect_planning": 3,
+              "no_error": 7
+            },
+            "category_percentages": {
+              "analysis_error": 100.0
+            },
+            "subcategory_percentages": {
+              "incorrect_planning": 100.0
+            },
+            "detailed_breakdown": {
+              "incorrect_planning": {
+                "count": 3,
+                "percentage": 100.0,
+                "examples": [
+                  {
+                    "task_id": "sqlite_simple_select",
+                    "sql_snippet": "SELECT * FROM customers LIMIT 10",
+                    "details": "Query structure differs from expected",
+                    "evidence": [
+                      "match_score=0.7"
+                    ]
+                  },
+                  {
+                    "task_id": "sqlite_count",
+                    "sql_snippet": "SELECT COUNT(*) as total FROM customers",
+                    "details": "Query structure differs from expected",
+                    "evidence": [
+                      "match_score=0.5"
+                    ]
+                  },
+                  {
+                    "task_id": "sqlite_group_by",
+                    "sql_snippet": "SELECT city, COUNT(*) as customer_count FROM customers GROUP BY city ORDER BY customer_count DESC",
+                    "details": "Query structure differs from expected",
+                    "evidence": [
+                      "match_score=0.775"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "task_comparison": [
+        {
+          "task_id": "sqlite_simple_select",
+          "agent_scores": {
+            "sql_agent": {
+              "overall": 0.8761,
+              "sql": "SELECT * FROM customers LIMIT 10",
+              "execution_success": true
+            },
+            "sql_agent_openai": {
+              "overall": 0.8761,
+              "sql": "SELECT * FROM customers LIMIT 10",
+              "execution_success": true
+            }
+          }
+        },
+        {
+          "task_id": "sqlite_count",
+          "agent_scores": {
+            "sql_agent": {
+              "overall": 0.771,
+              "sql": "SELECT COUNT(*) as total FROM customers",
+              "execution_success": true
+            },
+            "sql_agent_openai": {
+              "overall": 0.771,
+              "sql": "SELECT COUNT(*) as total FROM customers",
+              "execution_success": true
+            }
+          }
+        },
+        {
+          "task_id": "sqlite_where_filter",
+          "agent_scores": {
+            "sql_agent": {
+              "overall": 0.96,
+              "sql": "SELECT * FROM customers WHERE city = 'New York'",
+              "execution_success": true
+            },
+            "sql_agent_openai": {
+              "overall": 0.96,
+              "sql": "SELECT * FROM customers WHERE city = 'New York'",
+              "execution_success": true
+            }
+          }
+        },
+        {
+          "task_id": "sqlite_join",
+          "agent_scores": {
+            "sql_agent": {
+              "overall": 0.9975,
+              "sql": "SELECT c.name, o.order_date, o.total FROM customers c JOIN orders o ON c.id = o.customer_id",
+              "execution_success": true
+            },
+            "sql_agent_openai": {
+              "overall": 0.9975,
+              "sql": "SELECT c.name, o.order_date, o.total FROM customers c JOIN orders o ON c.id = o.customer_id",
+              "execution_success": true
+            }
+          }
+        },
+        {
+          "task_id": "sqlite_group_by",
+          "agent_scores": {
+            "sql_agent": {
+              "overall": 0.9137,
+              "sql": "SELECT city, COUNT(*) as customer_count FROM customers GROUP BY city ORDER BY customer_count DESC",
+              "execution_success": true
+            },
+            "sql_agent_openai": {
+              "overall": 0.9137,
+              "sql": "SELECT city, COUNT(*) as customer_count FROM customers GROUP BY city ORDER BY customer_count DESC",
+              "execution_success": true
+            }
+          }
+        },
+        {
+          "task_id": "sqlite_subquery",
+          "agent_scores": {
+            "sql_agent": {
+              "overall": 0.96,
+              "sql": "SELECT * FROM customers WHERE id IN (SELECT customer_id FROM orders WHERE total > 100)",
+              "execution_success": true
+            },
+            "sql_agent_openai": {
+              "overall": 0.96,
+              "sql": "SELECT * FROM customers WHERE id IN (SELECT customer_id FROM orders WHERE total > 100)",
+              "execution_success": true
+            }
+          }
+        },
+        {
+          "task_id": "sqlite_left_join",
+          "agent_scores": {
+            "sql_agent": {
+              "overall": 0.9238,
+              "sql": "SELECT c.name, o.total FROM customers c LEFT JOIN orders o ON c.id = o.customer_id",
+              "execution_success": true
+            },
+            "sql_agent_openai": {
+              "overall": 0.9238,
+              "sql": "SELECT c.name, o.total FROM customers c LEFT JOIN orders o ON c.id = o.customer_id",
+              "execution_success": true
+            }
+          }
+        },
+        {
+          "task_id": "sqlite_aggregate_sum",
+          "agent_scores": {
+            "sql_agent": {
+              "overall": 0.9975,
+              "sql": "SELECT SUM(total) as total_revenue FROM orders",
+              "execution_success": true
+            },
+            "sql_agent_openai": {
+              "overall": 0.9975,
+              "sql": "SELECT SUM(total) as total_revenue FROM orders",
+              "execution_success": true
+            }
+          }
+        },
+        {
+          "task_id": "sqlite_aggregate_avg",
+          "agent_scores": {
+            "sql_agent": {
+              "overall": 0.9975,
+              "sql": "SELECT AVG(total) as avg_order_value FROM orders",
+              "execution_success": true
+            },
+            "sql_agent_openai": {
+              "overall": 0.9975,
+              "sql": "SELECT AVG(total) as avg_order_value FROM orders",
+              "execution_success": true
+            }
+          }
+        },
+        {
+          "task_id": "sqlite_case_when",
+          "agent_scores": {
+            "sql_agent": {
+              "overall": 0.9815,
+              "sql": "SELECT id, total, CASE WHEN total > 500 THEN 'high' WHEN total > 100 THEN 'medium' ELSE 'low' END as category FROM orders",
+              "execution_success": true
+            },
+            "sql_agent_openai": {
+              "overall": 0.9815,
+              "sql": "SELECT id, total, CASE WHEN total > 500 THEN 'high' WHEN total > 100 THEN 'medium' ELSE 'low' END as category FROM orders",
+              "execution_success": true
+            }
+          }
+        }
+      ],
+      "metadata": {
+        "total_tasks_evaluated": 20,
+        "total_participants": 2
+      },
+      "error_metrics_summary": {
+        "total_tasks": 20,
+        "successful_tasks": 14,
+        "failed_tasks": 6,
+        "success_rate": 70.0,
+        "category_counts": {
+          "analysis_error": 6,
+          "no_error": 14
+        },
+        "subcategory_counts": {
+          "incorrect_planning": 6,
+          "no_error": 14
+        },
+        "category_percentages": {
+          "analysis_error": 100.0
+        },
+        "subcategory_percentages": {
+          "incorrect_planning": 100.0
+        },
+        "detailed_breakdown": {
+          "incorrect_planning": {
+            "count": 6,
+            "percentage": 100.0,
+            "examples": [
+              {
+                "task_id": "sql_agent:sqlite_simple_select",
+                "sql_snippet": "SELECT * FROM customers LIMIT 10",
+                "details": "Query structure differs from expected",
+                "evidence": [
+                  "match_score=0.7"
+                ]
+              },
+              {
+                "task_id": "sql_agent:sqlite_count",
+                "sql_snippet": "SELECT COUNT(*) as total FROM customers",
+                "details": "Query structure differs from expected",
+                "evidence": [
+                  "match_score=0.5"
+                ]
+              },
+              {
+                "task_id": "sql_agent:sqlite_group_by",
+                "sql_snippet": "SELECT city, COUNT(*) as customer_count FROM customers GROUP BY city ORDER BY customer_count DESC",
+                "details": "Query structure differs from expected",
+                "evidence": [
+                  "match_score=0.775"
+                ]
+              },
+              {
+                "task_id": "sql_agent_openai:sqlite_simple_select",
+                "sql_snippet": "SELECT * FROM customers LIMIT 10",
+                "details": "Query structure differs from expected",
+                "evidence": [
+                  "match_score=0.7"
+                ]
+              },
+              {
+                "task_id": "sql_agent_openai:sqlite_count",
+                "sql_snippet": "SELECT COUNT(*) as total FROM customers",
+                "details": "Query structure differs from expected",
+                "evidence": [
+                  "match_score=0.5"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

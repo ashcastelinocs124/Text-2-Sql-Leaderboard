@@ -1,0 +1,18 @@
+{
+  "image_digests": {
+    "green-agent": "ghcr.io/ashcastelinocs124/agentx-green@sha256:2806625479a85034fb60258db6420ff1d98dd8ea807a2dc7b562c257ca167f6c",
+    "sql_agent": "ghcr.io/ashcastelinocs124/agentx-purple@sha256:d2cd88c525f9a4feb729717cdf97110396d69e3ceb35661727324d62a0fefae3",
+    "sql_agent_openai": "ghcr.io/ashcastelinocs124/agentx-purple@sha256:d2cd88c525f9a4feb729717cdf97110396d69e3ceb35661727324d62a0fefae3",
+    "agentbeats-client": "ghcr.io/agentbeats/agentbeats-client@sha256:13dfe3ef4e583a80e7ce2fe3becd0ce3b879841368a7f4fa40b6ebbabeeb014e"
+  },
+  "timestamp": "2026-01-16T06:28:13Z",
+  "github_actions": {
+    "run_url": "https://github.com/ashcastelinocs124/Text-2-Sql-Leaderboard/actions/runs/21057824231",
+    "run_logs_url": "https://api.github.com/repos/ashcastelinocs124/Text-2-Sql-Leaderboard/actions/runs/21057824231/logs",
+    "ref": "refs/heads/run-assessment",
+    "sha": "8dd11f352e7f064662e4dc4664801de29c4312aa",
+    "repository_url": "https://github.com/ashcastelinocs124/Text-2-Sql-Leaderboard",
+    "workflow_ref": "ashcastelinocs124/Text-2-Sql-Leaderboard/.github/workflows/run-scenario.yml@refs/heads/run-assessment",
+    "workflow_sha": "8dd11f352e7f064662e4dc4664801de29c4312aa"
+  }
+}
