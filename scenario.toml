@@ -3,13 +3,14 @@
 # Triggered: 2026-01-15
 
 [green_agent]
-# Registered Green Agent on AgentBeats
-agentbeats_id = "019bc3ec-653b-7d90-aa8c-8d27d9d48ede"
+# Use public AgentX green agent image
+image = "keshavdalmia10/agentx-green:latest"
 env = {}
 
 # Participant - SQL generating agent
 [[participants]]
-agentbeats_id = "019bc3fe-9310-7251-9929-e2568f2145db"
+# Use public AgentX purple agent image
+image = "keshavdalmia10/agentx-purple:latest"
 name = "sql_agent"
 env = { GOOGLE_API_KEY = "${GOOGLE_API_KEY}" }
 
@@ -23,3 +24,4 @@ same_tasks = true
 # Re-trigger: Thu Jan 15 17:44:06 CST 2026
 # Retry: 195456
 # Retry: 195902
+# Retry: 200317
