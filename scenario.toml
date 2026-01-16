@@ -3,14 +3,13 @@
 # Triggered: 2026-01-15
 
 [green_agent]
-# Use public AgentX green agent image
-image = "keshavdalmia10/agentx-green:latest"
+# Registered Green Agent on AgentBeats
+agentbeats_id = "019bc3ec-653b-7d90-aa8c-8d27d9d48ede"
 env = {}
 
 # Participant - SQL generating agent
 [[participants]]
-# Use public AgentX purple agent image
-image = "keshavdalmia10/agentx-purple:latest"
+agentbeats_id = "019bc3fe-9310-7251-9929-e2568f2145db"
 name = "sql_agent"
 env = { GOOGLE_API_KEY = "${GOOGLE_API_KEY}" }
 
@@ -21,7 +20,10 @@ task_count = 5
 scorer_preset = "default"
 dialect = "sqlite"
 same_tasks = true
-# Re-trigger: Thu Jan 15 17:44:06 CST 2026
+<<<<<<< HEAD
 # Retry: 195456
-# Retry: 195902
-# Retry: 200317
+=======
+# Re-trigger: Thu Jan 15 17:44:06 CST 2026
+# Retry: 195050
+>>>>>>> origin/run-assessment
+# Retry: 200802
