@@ -21,9 +21,9 @@ env = { OPENAI_API_KEY = "${OPENAI_API_KEY}" }
 
 # Assessment Configuration
 [config]
-difficulty = ["easy", "medium"]
-task_count = 5
+difficulty = ["easy", "medium", "hard", "enterprise"]
+task_count = 10
 scorer_preset = "default"
 dialect = "sqlite"
 same_tasks = true
-# Re-trigger: Thu Jan 16 00:05:00 CST 2026
+# Re-trigger: Thu Jan 16 00:27:00 CST 2026
