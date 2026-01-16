@@ -97,6 +97,8 @@ PARTICIPANT_TEMPLATE = """  {name}:
     platform: linux/amd64
     container_name: {name}
     command: ["--host", "0.0.0.0", "--port", "{port}", "--card-url", "http://{name}:{port}"]
+    env_file:
+      - .env
     environment:{env}
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:{port}/.well-known/agent.json"]
